@@ -1,0 +1,79 @@
+% !TeX program = xelatex
+
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{blindtext}
+\usepackage{fontspec}
+\usepackage{layout}
+\usepackage[
+    verbose,
+    paper=a4paper,
+    % showframe,
+    left=1in,
+    right=1in,
+    top=36pt,
+    textheight=698pt,
+    headheight=16pt,
+    headsep=20pt, %top+headh+heads=72pt
+    marginparwidth=0pt,
+    marginparsep=0pt,
+    includeheadfoot]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titlesec}
+
+% Set main font
+\setmainfont{Times New Roman}
+
+% Header and Footer
+\pagestyle{fancyplain}
+\fancyhf{}
+\pagenumbering{arabic}
+\fancyhead[C]{
+    \textbf{Momentum MSCA Programme - Call 2}
+}
+\fancyfoot[R]{\scriptsize
+    page \thepage \,out of\, \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\section}
+    {\normalfont\bfseries}{\thesection.}{1em}{}
+
+% Bibliography setup
+\usepackage[style=ieee, backend=biber, maxnames=4]{biblatex}
+\addbibresource{refs.bib}
+\defbibheading{bibliography}{\section*{References}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{center}
+\fbox{\parbox{0.98\textwidth}{\centering
+\textbf{Research proposal}
+}}
+\end{center}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{|p{0.26\textwidth}|p{0.68\textwidth}|}
+        \hline
+        Name of the Applicant: & Felipe Eduardo Ponce Vanegas \\
+        \hline
+        Application Title: & System identification \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Excellence}
+
+\cite{ewins00}
+
+\section{Impact}
+
+\section{Implementation}
+
+
+\printbibliography
+
+\end{document}
