@@ -2,6 +2,7 @@
 
 \documentclass[a4paper, 12pt]{article}
 
+\usepackage{amsmath, mathtools}
 \usepackage{blindtext}
 \usepackage{fontspec}
 \usepackage{layout}
@@ -21,6 +22,9 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{titlesec}
+\usepackage{epigraph}
+
+\mathtoolsset{showonlyrefs}
 
 % Set main font
 \setmainfont{Times New Roman}
@@ -60,16 +64,56 @@
         \hline
         Name of the Applicant: & Felipe Eduardo Ponce Vanegas \\
         \hline
-        Application Title: & System identification \\
+        Application Title: &  \\
         \hline
     \end{tabular}
 \end{center}
 
 \section{Excellence}
 
-\cite{ewins00}
+Reliable, autonomous, and smooth running machines is the most desirable state of a ma\-nu\-facturing plant.
+To achieve, or approach, this utopian scenario it is essential to understand
+the response of a machine to external forces so that
+unstable operating conditions can be avoided or controlled.
+In this proposal we aim at understanding the response of machine tools and robots in the context of Advance Manufacturing, in particular,
+for processes that involve metal removal.
+
+To understand the response of a machine --- an activity known as \emph{System Identification} ---
+a basic component is modelling.
+Unlike many successful data-driven models for image or language processing,
+the amount of available data to train models in Advance Manufacturing is much more limited.
+To compensate for the scarcity of data (or relevant information),
+physically motivated models are still in active use in the field.
+
+Bayesian statistics offers a rigorous answer to the question:
+how much do the data support a model?
+This is particularly important when decisions must be made with little relevant information.
+Bayes's theorem states that
+\begin{equation}
+    p(M \mid D) \propto p(D \mid M)\,p(M),
+\end{equation}
+which means that the probability \(p(M \mid D)\) of a model \(M\) given the observed data or evidence \(D\) (the posterior) is
+proportional to the probability \(p(D \mid M)\) of the data given the model (the likelihood) times
+the probability \(p(M)\) of the model (the prior).
+The posterior provides a tool to make predictions that also includes
+the uncertainty in the selection of the model.
+
+Physical models are usually of the form
+\begin{equation}
+    M\ddot{x} + C\dot{x} + Kx + G(t, x, \dot{x}) = f(t),
+\end{equation}
+where \(x\) is the displacement from equilibrium,
+\(f\) is an external force or excitation,
+\(M\), \(C\), and \(K\) are matrices representing the mass, damping, and stiffness, and
+\(G\) represents additional linear or nonlinear effects.
+
+
 
 \section{Impact}
+
+Advance Manufacturing is a strategic sector for the Europe Union to
+ensure the position of the region as an industrial, world leader \cite{industrialforum}.
+
 
 \section{Implementation}
 
