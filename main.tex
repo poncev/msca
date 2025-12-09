@@ -22,7 +22,6 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{titlesec}
-\usepackage{epigraph}
 
 \mathtoolsset{showonlyrefs}
 
@@ -45,7 +44,12 @@
     {\normalfont\bfseries}{\thesection.}{1em}{}
 
 % Bibliography setup
-\usepackage[style=ieee, backend=biber, maxnames=4]{biblatex}
+\usepackage[
+    style=ieee,
+    backend=biber,
+    url=false,
+    doi=false,
+    maxnames=4]{biblatex}
 \addbibresource{refs.bib}
 \defbibheading{bibliography}{\section*{References}}
 
@@ -62,52 +66,110 @@
     \renewcommand{\arraystretch}{1.6}
     \begin{tabular}{|p{0.26\textwidth}|p{0.68\textwidth}|}
         \hline
-        Name of the Applicant: & Felipe Eduardo Ponce Vanegas \\
+        Name of the Applicant: &
+        Felipe Eduardo Ponce Vanegas \\
         \hline
-        Application Title: &  \\
+        Application Title: &
+        A Bayesian Approach to Nonlinear System Identification \\
         \hline
     \end{tabular}
 \end{center}
 
 \section{Excellence}
 
-Reliable, autonomous, and smooth running machines is the most desirable state of a ma\-nu\-facturing plant.
+Reliable, autonomous, and smooth running machines is the most desirable state for any ma\-nu\-facturing plant.
 To achieve, or approach, this utopian scenario it is essential to understand
-the response of a machine to external forces so that
+the response of the machines to external forces so that
 unstable operating conditions can be avoided or controlled.
-In this proposal we aim at understanding the response of machine tools and robots in the context of Advance Manufacturing, in particular,
-for processes that involve metal removal.
+To understand the response of a structure to external forces --- an activity known as System Identification ---
+analysis of experimental data and modelling are essential components.
 
-To understand the response of a machine --- an activity known as \emph{System Identification} ---
-a basic component is modelling.
+The general objective (GO) of this proposal is
+\emph{to provide sound methods and algorithms for the analysis of experimental data
+of structures with significant nonlinear effects.}
+Here, we focus on structures encountered in Advance Manufacturing by metal removal operations,
+like manufacturing of aerospace thin-walled components which
+must comply with very high standards of quality and safety.
+
 Unlike many successful data-driven models for image or language processing,
-the amount of available data to train models in Advance Manufacturing is much more limited.
-To compensate for the scarcity of data (or relevant information),
+the amount of data available for training of models in Advance Manufacturing is much more limited.
+To compensate for such scarcity of data (or relevant information),
 physically motivated models are still in active use in the field.
 
-Bayesian statistics offers a rigorous answer to the question:
-how much do the data support a model?
-This is particularly important when decisions must be made with little relevant information.
-Bayes's theorem states that
-\begin{equation}
-    p(M \mid D) \propto p(D \mid M)\,p(M),
-\end{equation}
-which means that the probability \(p(M \mid D)\) of a model \(M\) given the observed data or evidence \(D\) (the posterior) is
-proportional to the probability \(p(D \mid M)\) of the data given the model (the likelihood) times
-the probability \(p(M)\) of the model (the prior).
-The posterior provides a tool to make predictions that also includes
-the uncertainty in the selection of the model.
-
-Physical models are usually of the form
-\begin{equation}
+Physical models of structures usually take the form
+\begin{equation} \label{eq:mechanical_model}
     M\ddot{x} + C\dot{x} + Kx + G(t, x, \dot{x}) = f(t),
 \end{equation}
-where \(x\) is the displacement from equilibrium,
+where \(x\) are general coordinates of displacement from equilibrium,
 \(f\) is an external force or excitation,
 \(M\), \(C\), and \(K\) are matrices representing the mass, damping, and stiffness, and
 \(G\) represents additional linear or nonlinear effects.
+Linear models have been successfully applied in the modelling of many structures of practical interest, like machine tools.
+However, in recent years, nonlinear effects are getting increasing attention
+for, among other things, their relevance in lightweight structures \cite{martinelli24}, or
+also for describing the dynamics of robots \cite{bjorn25}.
+
+Nonlinear System Identification is an endless source of challenges.
+I plan to approach the subject from a Bayesian point of view.
+Bayesian statistics offers a rigorous answer to the question:
+to what extent do the collected data support a model?
+This is the scientific question we want to answer from our experiments, which
+is in clear contrast with the popular Frequentist approach,
+where a single model is assumed to be true, and
+we have to find it by fitting parameters.
+Bayesian statistics is particularly important when decisions must be made with little relevant information, and
+we want to include modelling uncertainties into the predictions.
 
 
+Bayes's theorem states that
+\begin{equation} \label{eq:bayesT}
+    p(M \,|\, D) \propto p(D \,|\, M)\,p(M),
+\end{equation}
+which means that the posterior, or conditional probability \(p(M \,|\, D)\) of a model \(M\) given the observed data or evidence \(D\), is
+proportional to the likelihood, or conditional probability \(p(D \,|\, M)\) of the data given the model, times
+the prior, or probability \(p(M)\) of the model.
+The posterior \(p(M \,|\, D)\) is the central object to make predictions, and
+Bayes's theorem is the tool to compute it.
+
+To make Bayesian inference a viable alternative,
+in agreement with the general objective (GO),
+my first objective (O.1) is
+\emph{to explore and apply methods to speed up the computation of the likelihood.}
+This objective is roughly equivalent to efficiently solving \(x\) in \eqref{eq:mechanical_model}.
+Two notable barriers that I must overcome are that
+(i) the number of variables could be very large, and
+(ii) standard solvers may be unacceptably slow.
+
+To address (i),
+existing techniques like substructuring, Reduction Order Models, and Nonlinear Normal Modes could be exploited.
+On the other front,
+standard solvers like Runge--Kutta schemes may be very slow, so
+for (ii) other alternatives like Neural Networks offer an interesting alternative.
+Solutions to both problems have been proposed, for example, in \cite{conti23}.
+
+Prior and historical knowledge is valuable when there is little data, so
+my second objective (O.2) is
+\emph{to enable integration of prior knowledge through \(p(M)\).}
+The Bayesian theoretical framework elegantly updates information using a previous posterior as a new prior.
+Unfortunately,
+technical issues make it difficult to realize Bayes's theorem in practice.
+Recently, Neural Networks have been proposed as a fast
+alternative to compute probability densities \cite{cai24},
+so I will explore and further develop these kinds of algorithms.
+
+Incidentally, O.2 naturally leads to researching algorithms for online updating,
+which are important for structures whose parameters substantially vary in time, like for robots.
+Hence, I set up as third objective (O.3)
+\emph{to develop algorithms for online updating.}
+The activities to reach O.2 are also included here, however,
+I can optionally explore better methods for computing predictions exploiting decentralized and federated learning,
+taking into account real computing capabilities in real industrial environments.
+
+The fourth objective (O.4) is
+\emph{to validate a methodology with a real experimental system.}
+
+% Also, by ``to provide'' I do not only mean to publish descriptions in print, but
+% furthermore to develop and share open software for the benefit of other researchers.
 
 \section{Impact}
 
