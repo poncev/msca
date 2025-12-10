@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120737+ebf0e940d0)"
+   sodipodi:docname="gantt.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="false"
+     inkscape:zoom="1.990573"
+     inkscape:cx="417.71891"
+     inkscape:cy="262.73841"
+     inkscape:window-width="1920"
+     inkscape:window-height="998"
+     inkscape:window-x="1920"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="235.16077"
+       y="117.93561"
+       width="368.72641"
+       height="76.018738"
+       id="rect2" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.296213;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="157.15048"
+       height="43.989723"
+       x="27.818428"
+       y="29.698172" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.68360064,0,0,0.68360064,-185.00489,-50.38614)"
+       id="text1"
+       style="font-size:6.1927px;font-family:'TeX Gyre Schola';-inkscape-font-specification:'TeX Gyre Schola';text-align:center;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);display:inline;fill:none;stroke:#000000;stroke-width:1.25858;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="413.78582"
+         y="123.65141"
+         id="tspan3"><tspan
+           style="font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';fill:#000000;stroke:none"
+           id="tspan1">Title</tspan></tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.333;stroke-dasharray:none;stroke-opacity:1"
+       d="M 28.008228,35.151266 H 184.96709"
+       id="path2" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.333436;stroke-dasharray:none;stroke-opacity:1"
+       d="M 27.725777,35.151266 H 185.09632"
+       id="path3" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.333436;stroke-dasharray:none;stroke-opacity:1"
+       d="M 27.725777,40.442933 H 185.09632"
+       id="path4" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.333681;stroke-dasharray:none;stroke-opacity:1"
+       d="M 106.39367,35.069549 V 73.797921"
+       id="path5" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.333681;stroke-dasharray:none;stroke-opacity:1"
+       d="M 66.965981,35.069549 V 73.797921"
+       id="path6" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.333681;stroke-dasharray:none;stroke-opacity:1"
+       d="M 145.78646,35.069549 V 73.797921"
+       id="path7" />
+  </g>
+</svg>
