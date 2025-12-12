@@ -23,8 +23,10 @@
 \usepackage{lastpage}
 \usepackage{titlesec}
 \usepackage{xcolor}
-\usepackage{tabularx}
 \usepackage{enumitem}
+\usepackage{array}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
 
 \mathtoolsset{showonlyrefs}
 
@@ -56,7 +58,7 @@
 \addbibresource{refs.bib}
 \defbibheading{bibliography}{\section*{References}}
 
-\newcommand\mcl[1]{\multicolumn{2}{|>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X|}{#1}}
+\newcommand\mcl[1]{\multicolumn{2}{|l|}{#1}}
 
 \def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.2ex}{\scriptsize\bf ++}}}
 
@@ -73,7 +75,12 @@
 \vspace*{-5pt}
 \begin{center}
     \renewcommand{\arraystretch}{1.6}
-    \begin{tabularx}{\textwidth}{|*{4}{X|}}
+    \begin{tabular}{
+        @{}|>{\raggedright}p{.2\textwidth-2\tabcolsep}
+        |>{\raggedright\arraybackslash}p{.13\textwidth-2\tabcolsep}
+        |>{\raggedright\arraybackslash}p{.25\textwidth-2\tabcolsep}
+        |>{\raggedright\arraybackslash}p{.4\textwidth-2\tabcolsep}|
+    @{}}
         \hline
         \mcl{Surname of the Applicant:} &
         \mcl{Ponce Vanegas} \\
@@ -81,16 +88,16 @@
         \mcl{First name of the Applicant:} &
         \mcl{Felipe Eduardo} \\
         \hline
-        \mcl{ORCID:} &
-        \mcl{0000-0002-1049-9752} \\
+        \mcl{Researcher unique identifier:} &
+        \mcl{ORCID 0000-0002-1049-9752} \\
         \hline
         \mcl{URL for web site:} &
-        \mcl{https://a-wandering-mathematician.netlify.app/} \\
+        \mcl{\url{https://a-wandering-mathematician.netlify.app/}} \\
         \hline
         PhD awarded (year): & 2018 &
         Active Research Years (FTE)*: & 7 \\
         \hline
-    \end{tabularx}
+    \end{tabular}
 \end{center}
 \vspace*{-6pt}
 {\small*Active Research Years (FTE)*: State the total number of years you have actively engaged in research since the award of your PhD (or equivalent), calculated in full-time equivalent (FTE).
@@ -110,7 +117,43 @@
 \section*{Publications and Other Research Outputs}
 
 \begin{itemize}[wide, labelindent=0pt]
+    \setlength\itemsep{-2pt}
     \item \textbf{Full reference:}
+    Ponce-Vanegas, F., Bartfai, A., and Dombovari, Z.
+    (2025). Semi-analytical Estimation for the Escape of Solutions of Linear Differential Equations with Slowly Varying Coefficients.
+    \textit{SIAM J. Appl. Math.},
+    85(4), 1519-1549.
+    \url{https://doi.org/10.1137/24M1685481}
+    \item \textbf{Role and contribution:}
+    \item \textbf{Evidence of impact:}
+    \item \textbf{Accessibility:}
 \end{itemize}
+
+\begin{itemize}[wide, labelindent=0pt]
+    \setlength\itemsep{-2pt}
+    \item \textbf{Full reference:}
+    Irastorza, M. and Ponce-Vanegas, F.
+    (2026).
+    The Tustin Method for approximating eigenvalues of delay systems. \textit{J. Comput. Appl. Math.},
+    472, 116772.
+    \url{https://doi.org/10.1016/j.cam.2025.116772}
+    \item \textbf{Role and contribution:}
+    \item \textbf{Evidence of impact:}
+    \item \textbf{Accessibility:}
+\end{itemize}
+
+\noindent Please provide one or more permanent links where your publication record is available:
+\begin{center}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{
+        @{}|>{\raggedright}p{.25\textwidth-2\tabcolsep}
+        |>{\raggedright\arraybackslash}p{.74\textwidth-2\tabcolsep}|
+    @{}}
+        \hline
+        \textbf{Source} & \textbf{Link} \\ \hline
+        ORCID & \url{https://orcid.org/0000-0002-1049-9752} \\ \hline
+        Personal webpage & \url{https://a-wandering-mathematician.netlify.app/about} \\ \hline
+    \end{tabular}
+\end{center}
 
 \end{document}
