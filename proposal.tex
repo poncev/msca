@@ -116,7 +116,7 @@ where \(x\) are general coordinates of displacement from equilibrium,
 Linear models have been successfully applied in the modelling of many structures of practical interest, like machine tools.
 However, in recent years, nonlinear effects are getting increasing attention
 for, among other things, their relevance in lightweight structures \cite{martinelli24}, or
-also for describing robot dynamics \cite{bjorn25}.
+also for describing robot dynamics with varying parameters \cite{bjorn25}.
 I remark that machining robots are a field of current interest in Advance Manufacturing \cite{verl19}.
 
 As another methodological principle,
@@ -140,7 +140,7 @@ directly proportional to the likelihood, or conditional probability \(p(D \,|\, 
 the prior, or probability \(p(M)\) of the model.
 The posterior \(p(M \,|\, D)\) is the central object to make predictions, and
 Bayes's theorem is a method to compute it, but
-the computational cost makes Bayesian statistics unfeasible in many cases.
+the high computational cost makes Bayesian statistics unfeasible in many situations.
 My ambitious plan is to make Bayesian inference a viable alternative,
 in agreement with the GO, so
 two strategic objectives are
@@ -182,28 +182,28 @@ Another challenge when solving \eqref{eq:mechanical_model} is the
 high dimensionality of \(x\) in many relevant cases.
 To address this problem,
 I can apply techniques like the Craig--Bamptom method, Reduction Order Models, Nonlinear Normal Modes, among many other methods.
-In \cite{conti23}, Proper Orthogonal Decomposition (POD) was
-used together with SINDy to track bifurcations in complex dynamical systems.
+For instance, in \cite{conti23} Proper Orthogonal Decomposition (POD) was
+used together with SINDy to efficiently track bifurcations in complex dynamical systems.
 
-Prior and historical knowledge is valuable when there is little data, so
-my second objective (O.2) is
-\emph{to enable integration of prior knowledge through \(p(M)\).}
-The Bayesian theoretical framework elegantly updates information using a previous posterior as a new prior.
+The Bayesian theoretical framework elegantly updates information using the posterior as the new prior when more data arrive.
 Unfortunately,
-technical issues make it difficult to realize Bayes's theorem in practice.
+technical issues make it difficult to realize this philosophy in practice, and
+the model must be re-trained from scratch with the new dataset.
+This makes, in particular, Bayesian inference impractical in structures with varying parameters.
+This is the content of O.~\ref{prior}.
+
+The most reliable methods to explore the posterior are based on Markov Chain Monte Carlo (MCMC) algorithms \cite{gelman14}, which
+approximate the posterior by returning samples from it.
+State-of-the-art MCMC algorithms require the prior \(p(M)\) to be an analytic function, so
+it is impossible to reuse a previous posterior which is a collection of samples, not an analytic function.
+
+Several alternatives have been given to solve this problem,
+like sequential learning, or importance sampling.
 Recently, Neural Networks have been proposed as a fast
-alternative to compute probability densities \cite{cai24},
-so I will explore and further develop these kinds of algorithms.
+alternative to computing probability densities.
+For instance, a method called Normalizing Flow was used to convert samples to an analytic prior \(p(M)\) in a problem of reconstruction of images from partial or corrupted data \cite{cai24}.
 
-Incidentally, O.2 naturally leads to researching algorithms for online updating,
-which are important for structures whose parameters substantially vary in time, like for robots.
-Hence, I set up as third objective (O.3)
-\emph{to develop algorithms for online updating.}
-The activities to reach O.2 are also included here, however,
-I can optionally explore better methods for computing predictions exploiting decentralized and federated learning,
-taking into account real computing capabilities in real industrial environments.
-
-The last strategical objective (\obj{experiment}) is
+The last strategic objective (\obj{experiment}) is
 \emph{to validate a methodology experimentally.}
 For this, we must propose a model.
 
