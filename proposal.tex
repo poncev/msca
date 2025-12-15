@@ -56,6 +56,9 @@
 
 \def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.2ex}{\scriptsize\bf ++}}}
 
+\newcounter{objno}
+\newcommand{\obj}[1]{\refstepcounter{objno}O.~\theobjno\label{#1}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
@@ -93,11 +96,14 @@ of structures with significant nonlinear effects.}
 Here, we focus on structures encountered in Advance Manufacturing by metal removal operations,
 like manufacturing of aerospace thin-walled components which
 must comply with very high standards of quality and safety.
+Nonlinear System Identification is an endless source of challenges, and
+a growing field of research \cite{noel17}.
 
 Unlike many successful data-driven models for image or language processing,
 the amount of data available for training of models in Advance Manufacturing is much more limited.
 To compensate for such scarcity of data (or relevant information),
-physically motivated models are still in active use in the field.
+physically motivated models are still in active use in the field, so
+to achieve the GO I will follow this methodology.
 
 Physical models of structures usually take the form
 \begin{equation} \label{eq:mechanical_model}
@@ -110,45 +116,74 @@ where \(x\) are general coordinates of displacement from equilibrium,
 Linear models have been successfully applied in the modelling of many structures of practical interest, like machine tools.
 However, in recent years, nonlinear effects are getting increasing attention
 for, among other things, their relevance in lightweight structures \cite{martinelli24}, or
-also for describing the dynamics of robots \cite{bjorn25}.
+also for describing robot dynamics \cite{bjorn25}.
+I remark that machining robots are a field of current interest in Advance Manufacturing \cite{verl19}.
 
-Nonlinear System Identification is an endless source of challenges.
-I plan to approach the subject from a Bayesian point of view.
+As another methodological principle,
+I plan to approach the subject from a Bayesian point of view, which
+has not been thoroughly explored in this context.
 Bayesian statistics offers a rigorous answer to the question:
 to what extent do the collected data support a model?
-This is the scientific question we want to answer from our experiments, which
+This is the scientific question we want to answer from experiments, which
 is in clear contrast with the popular Frequentist approach,
 where a single model is assumed to be true, and
 we have to find it by fitting parameters.
 Bayesian statistics is particularly important when decisions must be made with little relevant information, and
 we want to include modelling uncertainties into the predictions.
 
-
 Bayes's theorem states that
 \begin{equation} \label{eq:bayesT}
     p(M \,|\, D) \propto p(D \,|\, M)\,p(M),
 \end{equation}
 which means that the posterior, or conditional probability \(p(M \,|\, D)\) of a model \(M\) given the observed data or evidence \(D\), is
-proportional to the likelihood, or conditional probability \(p(D \,|\, M)\) of the data given the model, times
+directly proportional to the likelihood, or conditional probability \(p(D \,|\, M)\) of the data given the model, times
 the prior, or probability \(p(M)\) of the model.
 The posterior \(p(M \,|\, D)\) is the central object to make predictions, and
-Bayes's theorem is the tool to compute it.
+Bayes's theorem is a method to compute it, but
+the computational cost makes Bayesian statistics unfeasible in many cases.
+My ambitious plan is to make Bayesian inference a viable alternative,
+in agreement with the GO, so
+two strategic objectives are
+\emph{to optimze the computation of the likelihood} (\obj{likelihood}), and
+\emph{to enable model updating} (\obj{prior}).
 
-To make Bayesian inference a viable alternative,
-in agreement with the general objective (GO),
-my first objective (O.1) is
-\emph{to explore and apply methods to speed up the computation of the likelihood.}
-This objective is roughly equivalent to efficiently solving \(x\) in \eqref{eq:mechanical_model}.
-Two notable barriers that I must overcome are that
-(i) the number of variables could be very large, and
-(ii) standard solvers may be unacceptably slow.
+The computation of the likelihood in O.~\ref{likelihood}
+is roughly equivalent to efficiently solving \(x\) in \eqref{eq:mechanical_model} given the model parameters.
+The computation of the posterior in \eqref{eq:bayesT} involves repeated computations of \(x\) with different parameters, which
+are then plugged into the likelihood.
+At each iteration, \(x\) may be found using traditional methods like
+Runge--Kutta schemes, however,
+this could lead to an excessive computational overhead.
 
-To address (i),
-existing techniques like substructuring, Reduction Order Models, and Nonlinear Normal Modes could be exploited.
-On the other front,
-standard solvers like Runge--Kutta schemes may be very slow, so
-for (ii) other alternatives like Neural Networks offer an interesting alternative.
-Solutions to both problems have been proposed, for example, in \cite{conti23}.
+Recently, novel methods inspired in data-driven algorithms have given way to a new ge\-ne\-ration of solvers which
+could speed up the process dramatically.
+Two popular methods are Physics-Informed Neural Networks (PINNs) \cite{pinn22}
+and Sparse Identification of Non-linear Dynamics (SINDy) \cite{sindy19}.
+In both cases
+the idea is to train a model offline, and
+then to use the trained model to retrieve solutions quickly.
+
+PINNs solve differential equations by transforming them
+into a loss minimization problem.
+The solution \(x_\theta\) is approximated by a Neural Network with parameters \(\theta\), and
+then \(\theta\) are adjusted by minimizing a loss function forcing
+\(x_\theta\) to satisfy the differential equation.
+
+SINDy replaces the dynamics by a sparse sum of nonlinear terms representing the main terms driving the system.
+In an improved version of the method,
+the solution \(x\) is mapped by an autoencoder to a space of lower dimension, which
+gives a better representation of the solution.
+This has a resemblance to the use of complex resonances and mode shapes for solving linear equations, which
+effectively reduces \(x\) to a lower dimensional representation.
+The initial cost of generating a dataset by solving the dynamics using standard numerical methods is later
+recovered when new solutions must be quickly computed.
+
+Another challenge when solving \eqref{eq:mechanical_model} is the
+high dimensionality of \(x\) in many relevant cases.
+To address this problem,
+I can apply techniques like the Craig--Bamptom method, Reduction Order Models, Nonlinear Normal Modes, among many other methods.
+In \cite{conti23}, Proper Orthogonal Decomposition (POD) was
+used together with SINDy to track bifurcations in complex dynamical systems.
 
 Prior and historical knowledge is valuable when there is little data, so
 my second objective (O.2) is
@@ -168,13 +203,15 @@ The activities to reach O.2 are also included here, however,
 I can optionally explore better methods for computing predictions exploiting decentralized and federated learning,
 taking into account real computing capabilities in real industrial environments.
 
-The fourth objective (O.4) is
-\emph{to validate a methodology with a real experimental system.}
+The last strategical objective (\obj{experiment}) is
+\emph{to validate a methodology experimentally.}
+For this, we must propose a model.
 
-Submitted versions of the articles will be published in the 
-Repository of the Academy's Library (REAL), as encouraged by MTA, and also in arXiv.
+In agreement with Open Science policies,
+I will upload submitted versions of the articles to the 
+Repository of the Academy's Library (REAL), as encouraged by MTA, and also to arXiv.
 Depending on the publisher's policies,
-the accepted or published versions will be also deposited in REAL;
+the accepted or published versions will be also deposited in the REAL;
 no funds will be designated for the payment of open access fees.
 
 For the scientific code,
@@ -250,16 +287,6 @@ I will be part of the MTA-BME Lendület Machine Tool Vibration Research Group, l
 which functions within the Department of Applied Mecha\-nics.
 Zoltán Dombóvári is well-known for his contributions to ... \textcolor{red}{you can shine here!}
 
-\begin{center}
-    \includegraphics[width=0.9\textwidth]{images/gantt.eps}
-\end{center}
-
-Explain risks ...
-
-WP: Dissemination and Transfer Knowledge: Package website. Conferences. Organize workshop.
-
-WP: Management: Data Management Plan. Progress meetings. Secondment.
-
 The main objective of the Machine Tool Vibration Group is to
 develop a framework for effective intervention of machining processes based on sensory data.
 Among the strategic objectives,
@@ -300,17 +327,32 @@ is an exceptional researcher in precision engineering for
 sustainable manufacturing of high-quality products,
 which include aerospace components.
 
-During my years in Spain,
-I have collaborated with BCAM researchers like Michael Barton in path planning and modelling of metal cutting processes, and
-I have participated in projects with Aritz Pérez on intelligent manufacturing.
+The following research centers from the Basque Country, Spain, are additional collaborators:
+\textit{(i)} The Aeronautics Advanced Manufacturing Center (CFAA);
+\textit{(ii)} IDEKO ; and
+\textit{(ii)} The Basque Center for Applied Mathematics (BCAM).
+\textcolor{red}{Which any other place could I mention?}
 
-Also, I was in constant contact with engineers and researchers from the Aeronautics Advanced Manufacturing Center (CFAA), and IDEKO,
-both located in the Basque Country, Spain.
+I have collaborated with Michael Barto\v{n} (BCAM), an expert on tool path planning, and
+he and his team can help me with algorithms for modelling of cutting processes.
+Also, I participated with Aritz Pérez (BCAM), an expert on machine learning, in a project on Intelligent Manufacturing.
+David Pardo ...
+
+For years I was in constant contact with personnel from CFAA and IDEKO.
 These centers have highly qualified researcher on Advance Manufacturing,
 who can contribute their knowledge and experimental data.
-In particular, IDEKO has a long experience with real industrial problems,
-which can inspire new developments in my research.
 
+WP: Dissemination and Transfer Knowledge: Package website. Conferences. Organize workshop.
+
+WP: Management: Data Management Plan. Progress meetings. Secondment.
+
+WP: Experiments.
+
+Explain risks ...
+
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{images/gantt.eps}
+\end{center}
 
 
 \printbibliography
