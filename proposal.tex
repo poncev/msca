@@ -23,6 +23,7 @@
 \usepackage{lastpage}
 \usepackage{titlesec}
 \usepackage{xcolor}
+\usepackage{enumitem}
 
 \mathtoolsset{showonlyrefs}
 
@@ -58,6 +59,19 @@
 
 \newcounter{objno}
 \newcommand{\obj}[1]{\refstepcounter{objno}O.~\theobjno\label{#1}}
+
+% For Work Packages list.
+\newlist{WPs}{enumerate}{1}
+\setlist[WPs]{label*=WP\arabic*:~,ref=WP.~\arabic*, align=left}
+% \makeatletter
+% \newcommand\myitem[1][]{%
+%   \if\relax\detokenize{#1}\relax
+%     \item\relax
+%   \else
+%     \protected@edef\@currentlabel{WP#1}%
+%     \item[WP#1:~]
+%   \fi}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -172,7 +186,7 @@ then \(\theta\) are adjusted by minimizing a loss function forcing
 SINDy replaces the dynamics by a sparse sum of nonlinear terms representing the main terms driving the system.
 In an improved version of the method,
 the solution \(x\) is mapped by an autoencoder to a space of lower dimension, which
-gives a better representation of the solution.
+gives a more fundamental representation of the solution.
 This has a resemblance to the use of complex resonances and mode shapes for solving linear equations, which
 effectively reduces \(x\) to a lower dimensional representation.
 The initial cost of generating a dataset by solving the dynamics using standard numerical methods is later
@@ -181,32 +195,42 @@ recovered when new solutions must be quickly computed.
 Another challenge when solving \eqref{eq:mechanical_model} is the
 high dimensionality of \(x\) in many relevant cases.
 To address this problem,
-I can apply techniques like the Craig--Bamptom method, Reduction Order Models, Nonlinear Normal Modes, among many other methods.
+I can apply techniques like the Craig--Bamptom method, Reduction Order Models, Nonlinear Normal Modes \cite{cabre05}, among many other methods.
 For instance, in \cite{conti23} Proper Orthogonal Decomposition (POD) was
 used together with SINDy to efficiently track bifurcations in complex dynamical systems.
 
 The Bayesian theoretical framework elegantly updates information using the posterior as the new prior when more data arrive.
 Unfortunately,
-technical issues make it difficult to realize this philosophy in practice, and
-the model must be re-trained from scratch with the new dataset.
-This makes, in particular, Bayesian inference impractical in structures with varying parameters.
-This is the content of O.~\ref{prior}.
+technical issues make it difficult to realize this philosophy in practice,
+forcing to re-train the model from scratch when new data arrive.
+This renders Bayesian inference impractical for structures with varying parameters, and
+to overcome this challenge is the core of O.~\ref{prior}.
 
 The most reliable methods to explore the posterior are based on Markov Chain Monte Carlo (MCMC) algorithms \cite{gelman14}, which
 approximate the posterior by returning samples from it.
 State-of-the-art MCMC algorithms require the prior \(p(M)\) to be an analytic function, so
-it is impossible to reuse a previous posterior which is a collection of samples, not an analytic function.
+it is impossible to reuse a previous posterior because it is a collection of samples, not an analytic function.
 
-Several alternatives have been given to solve this problem,
+Several alternatives have been put forward to solve this problem,
 like sequential learning, or importance sampling.
 Recently, Neural Networks have been proposed as a fast
 alternative to computing probability densities.
-For instance, a method called Normalizing Flow was used to convert samples into an analytic prior \(p(M)\) in a problem of reconstruction of images from partial or corrupted data \cite{cai24}.
+For instance, in a problem of reconstruction of images from partial or corrupted data \cite{cai24},
+samples were transformed into an analytic prior \(p(M)\) using a method called Normalizing Flow, which
+uses Neural Networks to make a Gaussian distribution flow into another distribution.
 
 The last strategic objective (\obj{experiment}) is
 \emph{to validate a methodology experimentally.}
-I must select at least one structure with nonlinear behavior, and
-as a starting point I can use the datasets in \cite{schoukens17}.
+Objectives \ref{likelihood} and \ref{prior} give us a method to select promising models according to the evidence,
+but it still remains to choose a structure and a experimental methodology.
+There are plenty of possible structures, and a few relevant ones are listed in \cite{schoukens17}.
+At first, a structure encounter in Advance Manufacturing will be used, like a thin-wall component or a robotic arm.
+
+After setting the structure,
+I will be assisted by my collaborators in the host and secondment institution for the experimental work.
+In particular, tests will be designed to measure the extent of nonlinear effects, like
+measuring the response at different amplitudes of excitation, and
+frequency sweeps in both directions to detect backbone curves.
 
 In agreement with Open Science policies,
 I will upload submitted versions of the articles to the 
@@ -214,6 +238,9 @@ Repository of the Academy's Library (REAL), as encouraged by MTA, and also to ar
 Depending on the publisher's policies,
 the accepted or published versions will be also deposited in the REAL;
 no funds will be designated for the payment of open access fees.
+
+MENTION INTERPRETABILITY.
+TO SAY THAT THERE ARE MORE METHODS, AND I AM NOT LIMITED TO THOSE I MENTIONED.
 
 For the scientific code,
 I will give priority to open-source software, and
@@ -334,26 +361,78 @@ The following research centers from the Basque Country, Spain, are additional co
 \textit{(ii)} The Basque Center for Applied Mathematics (BCAM).
 \textcolor{red}{Which any other place could I mention?}
 
-I have collaborated with Michael Barto\v{n} (BCAM), an expert on tool path planning, and
-he and his team can help me with algorithms for modelling of cutting processes.
-Also, I participated with Aritz Pérez (BCAM), an expert on machine learning, in a project on Intelligent Manufacturing.
-David Pardo ...
+In BCAM, I could collaborate with:
+Michael Barto\v{n} on tool path planning;
+Aritz Pérez on machine learning; and
+David Pardo on PINNs and scientific machine learning.
 
 For years I was in constant contact with personnel from CFAA and IDEKO.
 These centers have highly qualified researcher on Advance Manufacturing,
 who can contribute their knowledge and experimental data.
 
-WP: Dissemination and Transfer Knowledge: Package website. Conferences. Organize workshop.
+The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are:
+% \vspace*{-5pt}
+\begin{WPs}[
+    topsep=\parskip, itemsep=\parskip, parsep=\parskip,
+    leftmargin=10pt, itemindent=!]
 
-WP: Management: Data Management Plan. Progress meetings. Secondment.
+    \item \textit{Project management:}
+    Management activities to ensure that the project reaches its completion, including progress reports requested by the funding agencies.
 
-WP: Experiments.
+    MS.~1: Kick-off meeting; and
+    MS.~2: First version of the Data Management Plan (DMP).
 
-Explain risks ...
+    D.~1: Meeting report; and
+    D.~2: Upload DMP to repository.
+
+    \item \textit{Solving dynamical systems:}
+    Activities to reach O.~\ref{likelihood}. Literature review on PINNs, SINDy, and other alternatives.
+
+    MS.~1: Efficiently solve dynamical systems of interest using existing or novel methods.
+
+    D.~1: Scientific article.
+
+    \item \textit{Model updating:}
+    Activities to reach O.~\ref{prior}. Literature review on posterior sampling,
+    with emphasis on fast methods like Variational Inference.
+
+    MS.~1: Implement and apply an algorithm to approach target probability densities.
+
+    D.~1: Scientific article.
+
+    \item \textit{Experimental validation:}
+    Activities to reach O.~\ref{experiment}.
+    Find a source of data, either existing datasets or
+    data from a new experiment.
+    In the latter case, design and perform the experiment,
+    collect data, and analyze them.
+
+    MS.~1: Define data source; and
+    MS.~2: Apply a methodology for Nonlinear System Identification using Bayesian inference to a specifi dataset.
+
+    D.~1: In case of generating a new experimental dataset,
+    upload complete dataset to repository; and
+
+    D.~2: Scientific article.
+
+    \item \textit{Dissemination and Transfer Knowledge:}
+    Activities to create synergies with researchers at the host institution, and to reach academic and industrial partners.
+
+    MS.~1: First release version of the project's Python package;
+    MS.~2: Define the title of the project's workshop, dates, and confirmed speakers; and
+    MS.~3: Secondment institution formally agrees.
+
+    D.~1: Publish package's repository and website;
+    D.~2: Workshop proceedings; and
+    D.~3: Invitation letter from secondment institution.
+
+\end{WPs}
 
 \begin{center}
     \includegraphics[width=0.9\textwidth]{images/gantt.eps}
 \end{center}
+
+Explain risks ...
 
 
 \printbibliography
