@@ -5,6 +5,7 @@
 \usepackage{amsmath, mathtools}
 \usepackage{blindtext}
 \usepackage{fontspec}
+\usepackage{graphicx}
 \usepackage{layout}
 \usepackage[
     verbose,
@@ -23,6 +24,7 @@
 \usepackage{lastpage}
 \usepackage{titlesec}
 \usepackage{xcolor}
+\usepackage{array}
 \usepackage{enumitem}
 
 \mathtoolsset{showonlyrefs}
@@ -313,8 +315,6 @@ By ``broader public'' I understand people in the industry; any event to sell alg
 As a MSCA fellow,
 I will be part of the MTA-BME Lendület Machine Tool Vibration Research Group, led by Zoltán Dombóvári, 
 which functions within the Department of Applied Mecha\-nics.
-Zoltán Dombóvári is well-known for his contributions to ... \textcolor{red}{you can shine here!}
-
 The main objective of the Machine Tool Vibration Group is to
 develop a framework for effective intervention of machining processes based on sensory data.
 Among the strategic objectives,
@@ -338,7 +338,6 @@ This creates a perfect synergy because
 I can complement them by opening and modifying black-boxes (like Neural Network architectures) tailored
 for specific use-cases, while
 steering my work toward physically relevant mathematical concepts.
-
 In fact, I have already collaborated with members of the Group in the study of processes with varying parameters,
 where they identified an interesting phenomenon in tool dynamics, and
 I assisted them by providing rigorous mathematical foundations to their intuitions.
@@ -354,23 +353,28 @@ under the supervision of Andreas Archenti, who
 is an exceptional researcher in precision engineering for
 sustainable manufacturing of high-quality products,
 which include aerospace components.
-
-The following research centers from the Basque Country, Spain, are additional collaborators:
-\textit{(i)} The Aeronautics Advanced Manufacturing Center (CFAA);
-\textit{(ii)} IDEKO ; and
-\textit{(ii)} The Basque Center for Applied Mathematics (BCAM).
-\textcolor{red}{Which any other place could I mention?}
+The following research centers from the Basque Country, Spain, are other collaborators:
+\textit{(ii)} The Basque Center for Applied Mathematics (BCAM);
+\textit{(i)} The Aeronautics Advanced Manufacturing Center (CFAA); and
+\textit{(ii)} IDEKO.
+I will also add to my network the collaborators of the Group.
 
 In BCAM, I could collaborate with:
 Michael Barto\v{n} on tool path planning;
-Aritz Pérez on machine learning; and
-David Pardo on PINNs and scientific machine learning.
-
-For years I was in constant contact with personnel from CFAA and IDEKO.
+Aritz Pérez on machine learning; or
+David Pardo on scientific machine learning.
+I am also in contact with personnel from the CFAA and IDEKO.
 These centers have highly qualified researcher on Advance Manufacturing,
 who can contribute their knowledge and experimental data.
 
-The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are:
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/gantt.eps}
+    \caption{Gantt chart. Abbreviations: Experiments (Exp); Python Package (Pkg); Workshop (WS); and Secondment (S).
+    Red bar denotes third-party responsibility.}\label{fig:gantt}
+\end{figure}
+
+The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are (see Figure~\ref{fig:gantt}):
 % \vspace*{-5pt}
 \begin{WPs}[
     topsep=\parskip, itemsep=\parskip, parsep=\parskip,
@@ -412,7 +416,6 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
 
     D.~1: In case of generating a new experimental dataset,
     upload complete dataset to repository; and
-
     D.~2: Scientific article.
 
     \item \textit{Dissemination and Transfer Knowledge:}
@@ -428,11 +431,20 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
 
 \end{WPs}
 
-\begin{center}
-    \includegraphics[width=0.9\textwidth]{images/gantt.eps}
-\end{center}
-
-Explain risks ...
+\begin{table}[t]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{@{}
+        |>{\raggedright}p{.2\textwidth-2\tabcolsep}
+        |>{\raggedright}p{.25\textwidth-2\tabcolsep}
+        |>{\raggedright}p{.25\textwidth-2\tabcolsep}|
+    @{}}
+        \hline
+        P/I & Risk & Mitigation \\
+        H/H & This & Other \\
+    \end{tabular}
+    \caption{Risks and mitigation actions.}\label{fig:risks}
+\end{table}
 
 
 \printbibliography
