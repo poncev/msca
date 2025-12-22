@@ -6,6 +6,7 @@
 \usepackage{blindtext}
 \usepackage{fontspec}
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{layout}
 \usepackage[
     verbose,
@@ -375,7 +376,7 @@ who can contribute their knowledge and experimental data.
 \end{figure}
 
 The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are (see Figure~\ref{fig:gantt}):
-% \vspace*{-5pt}
+
 \begin{WPs}[
     topsep=\parskip, itemsep=\parskip, parsep=\parskip,
     leftmargin=10pt, itemindent=!]
@@ -433,17 +434,21 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
 
 \begin{table}[t]
     \centering
-    \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{@{}
-        |>{\raggedright}p{.2\textwidth-2\tabcolsep}
-        |>{\raggedright}p{.25\textwidth-2\tabcolsep}
-        |>{\raggedright}p{.25\textwidth-2\tabcolsep}|
-    @{}}
-        \hline
-        P/I & Risk & Mitigation \\
-        H/H & This & Other \\
-    \end{tabular}
+    % \renewcommand{\arraystretch}{1.}
     \caption{Risks and mitigation actions.}\label{fig:risks}
+    \begin{tabular}{@{}
+        |>{\centering\arraybackslash}p{.08\textwidth-2\tabcolsep}
+        |p{.46\textwidth-2\tabcolsep}
+        |p{.45\textwidth-2\tabcolsep}|
+    @{}}
+        \toprule
+        \textbf{P/I} &
+        \multicolumn{1}{|c}{\textbf{Risk}} &
+        \multicolumn{1}{|c|}{\textbf{Mitigation}} \\
+        \midrule
+        H/H & This & Other \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 
