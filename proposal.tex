@@ -58,6 +58,7 @@
 \addbibresource{refs.bib}
 \defbibheading{bibliography}{\section*{References}}
 
+
 \def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.2ex}{\scriptsize\bf ++}}}
 
 \newcounter{objno}
@@ -240,7 +241,7 @@ I will upload submitted versions of the articles to the
 Repository of the Academy's Library (REAL), as encouraged by MTA, and also to arXiv.
 Depending on the publisher's policies,
 the accepted or published versions will be also deposited in the REAL;
-no funds will be designated for the payment of open access fees.
+no funds will be dedicated to the payment of open access fees.
 
 MENTION INTERPRETABILITY.
 TO SAY THAT THERE ARE MORE METHODS, AND I AM NOT LIMITED TO THOSE I MENTIONED.
@@ -257,58 +258,64 @@ For more details, see the Data Management Plan.
 
 Nonlinear System Identification is a very complex task, and
 it may define my whole future academic career.
-In the short-term, this project will be an opportunity
-to gain more experience and deepen into modern techniques in high demand inside and outside academia,
-like: Neural Networks; FEM simulations; data management; and monitoring of industrial processes.
-\textcolor{red}{Do you suggest any skills? Social skills? Maybe, I should describe them in more detail.}
-\textcolor{red}{Do you think I should take a course on Ansys, or whatever?}
+In the medium term,
+securing this prestigious grant will increase my visibility, and
+the possibility of obtaining further grants and funding for my research or scientific events.
+Since this project may yield algorithms with industrial relevance,
+in the future I could serve as a consultant for development of software with industrial interest.
+
+In the short term,
+this project will allow me to learn and apply several techniques in high demand
+inside and outside academia.
+For example, I have only learnt about NNs in theory, but
+I lack practical experience, so
+this project will serve as a hands-on training on NNs.
+Also, I may need FEM simulations, which
+I have only used once in my career many years ago, so
+this engineering project will enhance my skills with a more applied component.
 
 Bayesian statistics is conceptually and computationally more demanding than the standard Frequentist statistics,
-so research in this area will also make me stand out among my scientific peers, and
+so researching in this area will make me stand out among my scientific peers, and
 it will give me an advantage in the rigorous analysis of experimental data with robust uncertainty quantification.
+It is worth noting that I will also gain more experience in data management and analysis.
+For example, I still have more to learn about FAIR principles and data versioning.
+In previous projects I have used ad hoc methods for data management, but
+now I know more techniques which I want to apply.
+
+I plan to develope an open-source Python package ---
+inspired by the principles of NumPy and similar scientific packages ---
+where I will collect, organize, and maintain algorithms so that
+other researchers can exploit them.
+Software maintenance demands several skills to enable an effective interaction with the users, like
+a well-documented code, a webpage, and a pipeline from development to deployment.
+For all this, I will take a course on good practices for code development and deployment.
+
+At CFAA, where I have my office, the researchers approach problems from an industrial perspective, so
+the mathematical foundations behind many problems is not their priority.
+On the other hand, the Group of Machine Tool Vibrations, led by Z. Dombóvári,
+is known for their sensitivity when it comes to appreciate the mathematics behind manufacturing processes,
+which will enrich my knowledge with another perspective.
+
+As I have stressed,
+Bayesian inference is less common due primarily to computational barriers, but
+this project will TODO.
 
 The European Commission views Advance Manufacturing as a strategic sector
 for maintaining the region's position as a competitive global player \cite{industrialforum}.
-In the same way as Modal Analysis is an essential tool today in the manufacturing industry,
+In the same way Modal Analysis is an essential tool today in the manufacturing industry,
 the new theoretical frameworks and methodologies developed during this project will
 contribute to the creation of new tools for monitoring, control, and diagnosis of machining processes where
 nonlinear effects and varying parameters play an important role.
 
 Research outputs will be disseminated through usual scientific channels:
 articles in re\-pu\-table peer-reviewed journals, and
-posters and talks in scientific events. In particular,
-I plan to attend
-\textcolor{red}{any well-known conference I should mention as a target event?}
-
+posters and talks in scientific events.
 Additionally, the research outputs will be promoted through the webpages of the Department of Applied Mechanics and the Machine Tool Vibration Research Group.
 I will also post blog entries to my webpage featuring my research or interesting facts in a more engaging and less formal language for a broader scientific audience.
 
 To grow and strengthen my collaborative network,
 I will organize at least one workshop on Nonlinear System Identification and Bayesian statistics to bring together researchers
 from both fields.
-
-One product will be an open-source Python package ---
-inspired by the principles of NumPy and similar scientific packages ---
-where I will collect, organize, and maintain algorithms so that
-other researchers can exploit them under a license like MIT or CC-BY.
-The algorithms will initially be inspired by my research, but
-not constraint to it.
-The code will be available in a Git repository, and
-the package will be listed in the Python Package Index (PyPI).
-A webpage will be dedicated to tutorials and documentation.
-For all this, I will take a course on good practices for code development and deployment.
-
-The Python package will not only be intended for the benefit of other researchers, but
-also to make new algorithms and paradigms accessible to the industry,
-not only companies with big budgets, but also small ones and start-ups.
-A successful package would also secure me a consultancy role for companies with relevant use-cases,
-which would in turn enrich the content of the package.
-
-\textcolor{red}{Any ideas for ``communication activities for engaging with the broader public'':
-i) Target audiences ii) Key messages iii) Tools and channels to be used.
-I do not want to commit myself to participate in events for general public (also, I do not speak local people's language).
-I do not have Twitter, Facebook, or similar poisons, I avoid posting anything in LinkedIn.
-By ``broader public'' I understand people in the industry; any event to sell algorithms?}
 
 
 \section{Implementation}
@@ -328,7 +335,7 @@ I will bring to the Group a Bayesian perspective which
 they have not explored yet.
 This new perspective will extend the Group's research portfolio
 by endowing them with new tools for the rigorous statistical analysis of experimental data, and
-additional theoretical knowledge to include uncertainty in their models.
+additional theoretical knowledge for including uncertainty into their models.
 
 The Group excels at the construction, simulation, and experimental validation of physical models of machining processes.
 However, at times, their work depends on the application of heuristic algorithms or black-boxes
@@ -336,12 +343,9 @@ whose inner workings do not lie in their domain of expertise.
 On the other hand, as a mathematician,
 I rely on their expert knowledge and experience on machining processes.
 This creates a perfect synergy because
-I can complement them by opening and modifying black-boxes (like Neural Network architectures) tailored
+I can complement them by opening and modifying black-boxes (like NN architectures) tailored
 for specific use-cases, while
 steering my work toward physically relevant mathematical concepts.
-In fact, I have already collaborated with members of the Group in the study of processes with varying parameters,
-where they identified an interesting phenomenon in tool dynamics, and
-I assisted them by providing rigorous mathematical foundations to their intuitions.
 
 \textcolor{red}{Does BME-MM have access to any computing cluster?}
 
@@ -349,33 +353,26 @@ I assisted them by providing rigorous mathematical foundations to their intuitio
 
 \textcolor{red}{About equipment and facilities, what do you suggest I should remark as strengths of MM-BME.}
 
-A secondment is planned at the Royal Institute of Technology (KTH) in Stockholm, Sweden,
-under the supervision of Andreas Archenti, who
-is an exceptional researcher in precision engineering for
-sustainable manufacturing of high-quality products,
-which include aerospace components.
-The following research centers from the Basque Country, Spain, are other collaborators:
-\textit{(ii)} The Basque Center for Applied Mathematics (BCAM);
-\textit{(i)} The Aeronautics Advanced Manufacturing Center (CFAA); and
-\textit{(ii)} IDEKO.
-I will also add to my network the collaborators of the Group.
+\textcolor{red}{Describe the resources required for your project.
+Detail any specific equipment, datasets, capabilities, or facilities needed}
 
-In BCAM, I could collaborate with:
-Michael Barto\v{n} on tool path planning;
-Aritz Pérez on machine learning; or
-David Pardo on scientific machine learning.
-I am also in contact with personnel from the CFAA and IDEKO.
-These centers have highly qualified researcher on Advance Manufacturing,
-who can contribute their knowledge and experimental data.
+A secondment is planned at the Royal Institute of Technology (KTH) in Stockholm, Sweden,
+under the supervision of Andreas Archenti, 
+a well-known researcher in precision engineering.
+Other collaborators in the Basque Country, Spain, are:
+\textit{(i)} The Basque Center for Applied Mathematics (BCAM);
+\textit{(ii)} The Aeronautics Advanced Manufacturing Center (CFAA); and
+\textit{(iii)} IDEKO.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.95\textwidth]{images/gantt.eps}
     \caption{Gantt chart. Abbreviations: Experiments (Exp); Python Package (Pkg); Workshop (WS); and Secondment (S).
-    Red bar denotes third-party responsibility.}\label{fig:gantt}
+    Red bar denotes third-party responsibility. \textcolor{red}{correct S}}\label{fig:gantt}
 \end{figure}
 
-The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are (see Figure~\ref{fig:gantt}):
+
+The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, summarized in Figure~\ref{fig:gantt}, are:
 
 \begin{WPs}[
     topsep=\parskip, itemsep=\parskip, parsep=\parskip,
@@ -384,8 +381,8 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
     \item \textit{Project management:}
     Management activities to ensure that the project reaches its completion, including progress reports requested by the funding agencies.
 
-    MS.~1: Kick-off meeting; and
-    MS.~2: First version of the Data Management Plan (DMP).
+    MS.~1: Kick-off meeting;
+    MS.~2: First version of the Data Management Plan (DMP); and
     MS.~3: Secondment institution formally agrees.
 
     D.~1: Meeting report; and
@@ -393,15 +390,14 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
     D.~3: Invitation letter from secondment institution.
 
     \item \textit{Solving dynamical systems:}
-    Activities to reach O.~\ref{likelihood}. Literature review on PINNs, SINDy, and other alternatives.
+    Activities to reach O.~\ref{likelihood}.
 
     MS.~1: Efficiently solve dynamical systems of interest using existing or novel methods.
 
     D.~1: Scientific article.
 
     \item \textit{Model updating:}
-    Activities to reach O.~\ref{prior}. Literature review on posterior sampling,
-    with emphasis on fast methods like Variational Inference.
+    Activities to reach O.~\ref{prior}.
 
     MS.~1: Implement and apply an algorithm to approach target probability densities.
 
@@ -424,21 +420,21 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
     \item \textit{Dissemination and Transfer Knowledge:}
     Activities to create synergies with researchers at the host institution, and to reach academic and industrial partners.
 
-    MS.~1: First release version of the project's Python package;
-    MS.~2: Define the title of the project's workshop, dates, and confirmed speakers; and
+    MS.~1: First release version of the project's Python package; and
+    MS.~2: Define the title of the project's workshop, dates, and confirmed speakers.
 
-    D.~1: Publish package's repository and website;
-    D.~2: Workshop proceedings; and
+    D.~1: Publish package's repository and website; and
+    D.~2: Workshop proceedings.
 
 \end{WPs}
 
-\begin{table}[t]
+\begin{table}[t!]
     \centering
     % \renewcommand{\arraystretch}{1.}
     \caption{
     Risks and mitigation actions;
-    Space only for technical risks, ignoring familiar or personal relationships risks.
-    The Likelihood/Impact (\textbf{L/I}) is described as Low (L), Medium (M), or High (H).}\label{fig:risks}
+    only technical risks, ignoring familiar or inter-personal risks.
+    The Likelihood/Impact (\textbf{L/I}) is described as Low (L), Medium (M), or High (H).}\label{tab:risks}
     \begin{tabular}{@{}
         >{\centering\arraybackslash}p{.05\textwidth-2\tabcolsep}
         p{.36\textwidth-2\tabcolsep}
@@ -481,15 +477,15 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
         4 &
         No sufficient funding for experiments,
         experiments cannot be completed, or
-        unexpectedly bad results (\textit{e.g.} malfunctioning sensor). &
+        bad results (\textit{e.g.} malfunctioning sensor). &
         H/H &
         Fall back to historical data from a collaborator like IDEKO or CFAA, or
         publicly available datasets.
         \\ \midrule
 
         4 &
-        No data provided by any collaborator, or
-        dataset is not usable (\textit{e.g.} low quality, bad formatting, irrelevant data). &
+        No dataset provided by any collaborator, or
+        it is not usable (\textit{e.g.} low quality, irrelevant data). &
         M/H &
         Resort to simulated data.
         The project can still be completed, but
@@ -510,6 +506,7 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
     \end{tabular}
 \end{table}
 
+\noindent The risks and mitigation actions are described in Table~\ref{tab:risks}.
 
 \printbibliography
 
