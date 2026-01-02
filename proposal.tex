@@ -386,9 +386,11 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
 
     MS.~1: Kick-off meeting; and
     MS.~2: First version of the Data Management Plan (DMP).
+    MS.~3: Secondment institution formally agrees.
 
     D.~1: Meeting report; and
     D.~2: Upload DMP to repository.
+    D.~3: Invitation letter from secondment institution.
 
     \item \textit{Solving dynamical systems:}
     Activities to reach O.~\ref{likelihood}. Literature review on PINNs, SINDy, and other alternatives.
@@ -424,29 +426,86 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project are
 
     MS.~1: First release version of the project's Python package;
     MS.~2: Define the title of the project's workshop, dates, and confirmed speakers; and
-    MS.~3: Secondment institution formally agrees.
 
     D.~1: Publish package's repository and website;
     D.~2: Workshop proceedings; and
-    D.~3: Invitation letter from secondment institution.
 
 \end{WPs}
 
 \begin{table}[t]
     \centering
     % \renewcommand{\arraystretch}{1.}
-    \caption{Risks and mitigation actions.}\label{fig:risks}
+    \caption{
+    Risks and mitigation actions;
+    Space only for technical risks, ignoring familiar or personal relationships risks.
+    The Likelihood/Impact (\textbf{L/I}) is described as Low (L), Medium (M), or High (H).}\label{fig:risks}
     \begin{tabular}{@{}
-        |>{\centering\arraybackslash}p{.08\textwidth-2\tabcolsep}
-        |p{.46\textwidth-2\tabcolsep}
-        |p{.45\textwidth-2\tabcolsep}|
+        >{\centering\arraybackslash}p{.05\textwidth-2\tabcolsep}
+        p{.36\textwidth-2\tabcolsep}
+        >{\centering\arraybackslash}p{.07\textwidth-2\tabcolsep}
+        p{.54\textwidth-2\tabcolsep}
     @{}}
         \toprule
-        \textbf{P/I} &
-        \multicolumn{1}{|c}{\textbf{Risk}} &
-        \multicolumn{1}{|c|}{\textbf{Mitigation}} \\
+        \textbf{\footnotesize WP} &
+        \multicolumn{1}{c}{\textbf{Risk}} &
+        \textbf{L/I} &
+        \multicolumn{1}{c}{\textbf{Mitigation}} \\
         \midrule
-        H/H & This & Other \\
+
+        1 &
+        No secondment institution is found. &
+        L/H &
+        A. Archenti (KTH)
+        has expressed his willingness to accept me as a mentee.
+        Another alternative is IDEKO, Spain.
+        Also, Z. Dombóvári has an extense list of collaborators.
+         \\ \midrule
+
+        2 &
+        The new algorithms are not sufficiently fast for Bayesian exploration. &
+        M/H &
+        WP3 depends on this.
+        Define a hierarchy of models, from simple to complex, so that
+        at each stage there is only one major issue to overcome
+        like a nonlinearity or high-dimensionality.
+        Leverage computational speed and complexity. \\ \midrule
+
+        3 &
+        The algorithm is prohibitively slow, or
+        the posteior do not converge to the target distribution. &
+        M/M &
+        WP4 depends on this, but
+        MCMC can still be used for simple models in WP4.
+        Again, use a hierarchy of models. \\ \midrule
+
+        4 &
+        No sufficient funding for experiments,
+        experiments cannot be completed, or
+        unexpectedly bad results (\textit{e.g.} malfunctioning sensor). &
+        H/H &
+        Fall back to historical data from a collaborator like IDEKO or CFAA, or
+        publicly available datasets.
+        \\ \midrule
+
+        4 &
+        No data provided by any collaborator, or
+        dataset is not usable (\textit{e.g.} low quality, bad formatting, irrelevant data). &
+        M/H &
+        Resort to simulated data.
+        The project can still be completed, but
+        with weaker conclusions. \\ \midrule
+
+        5 &
+        Problems organizing the workshop
+        (\textit{e.g.} delays, unexpected cancellations, low attendance) &
+        M/L &
+        I do not have much experience as organizer, but
+        Z. Dombóvári do.
+        The workshop could be online.
+        If no workshop takes place,
+        it would undermine the dissemination plan, but
+        I still will share the outputs through articles, congreses, etc. \\
+
         \bottomrule
     \end{tabular}
 \end{table}
