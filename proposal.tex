@@ -57,7 +57,7 @@
     maxnames=4]{biblatex}
 \addbibresource{refs.bib}
 \defbibheading{bibliography}{\section*{References}}
-
+\usepackage{setspace}
 
 \def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.2ex}{\scriptsize\bf ++}}}
 
@@ -256,62 +256,77 @@ For more details, see the Data Management Plan.
 
 \section{Impact}
 
-Nonlinear System Identification is a very complex task, and
+Nonlinear System Identification is a very complex problem, and
 it may define my whole future academic career.
 In the medium term,
-securing this prestigious grant will increase my visibility, and
-the possibility of obtaining further grants and funding for my research or scientific events.
+securing this prestigious grant will increase my visibility and
+probabilities of success in securing further funding for my research or scientific events.
 Since this project may yield algorithms with industrial relevance,
-in the future I could serve as a consultant for development of software with industrial interest.
+in the future I could serve as a consultant in areas like advanced manufacturing.
 
 In the short term,
-this project will allow me to learn and apply several techniques in high demand
-inside and outside academia.
-For example, I have only learnt about NNs in theory, but
+I will benefit from the interaction with the members of
+the Machine Tool Vibration Research Group (MTV-RG) and their large list of collaborators.
+The MTV-RG is known for their sensitivity when it comes to appreciate the mathematical depth behind manufacturing processes
+(which is not always the case in engineering environments),
+so the MTV-RG is the right place to learn and apply several mathematical techniques in high demand inside and outside academia.
+
+For example, I have only learned about NNs in theory, but
 I lack practical experience, so
 this project will serve as a hands-on training on NNs.
-Also, I may need FEM simulations, which
-I have only used once in my career many years ago, so
-this engineering project will enhance my skills with a more applied component.
+Also, I do not have much experience performing FEM simulations,
+but for this project I may need to simulate complex structures, which
+will force me to enhance my skills on this area.
 
 Bayesian statistics is conceptually and computationally more demanding than the standard Frequentist statistics,
-so researching in this area will make me stand out among my scientific peers, and
-it will give me an advantage in the rigorous analysis of experimental data with robust uncertainty quantification.
-It is worth noting that I will also gain more experience in data management and analysis.
+so researching in this area will make me stand out among my scientific peers.
+It is worth noting that I will also gain more experience in data man\-age\-ment and analysis.
 For example, I still have more to learn about FAIR principles and data versioning.
-In previous projects I have used ad hoc methods for data management, but
-now I know more techniques which I want to apply.
 
-I plan to develope an open-source Python package ---
+I plan to develop an open-source Python package ---
 inspired by the principles of NumPy and similar scientific packages ---
 where I will collect, organize, and maintain algorithms so that
-other researchers can exploit them.
-Software maintenance demands several skills to enable an effective interaction with the users, like
+other researchers or industrial R\&D teams can exploit them,
+facilitating technology transfer.
+Additionally, software maintenance demands several skills to enable an effective interaction with the users, like
 a well-documented code, a webpage, and a pipeline from development to deployment.
 For all this, I will take a course on good practices for code development and deployment.
 
-At CFAA, where I have my office, the researchers approach problems from an industrial perspective, so
-the mathematical foundations behind many problems is not their priority.
-On the other hand, the Group of Machine Tool Vibrations, led by Z. Dombóvári,
-is known for their sensitivity when it comes to appreciate the mathematics behind manufacturing processes,
-which will enrich my knowledge with another perspective.
+Frequentist statistics is still the main method of analysis in many areas, even
+in conditions where it cannot be fully justified.
+This project will promote the use of Bayesian statistics for the analysis of industrial processes
+through the introduction of robust algorithms together with their implementation in use-cases.
+As mentioned in the first section,
+one of the bottlenecks in the application of Bayesian methods is
+the difficulty of converting a posterior into a prior for further sampling.
+However, this project seeks to solve this problem,
+at least for specific cases that may hint a more general method for future research.
 
-As I have stressed,
-Bayesian inference is less common due primarily to computational barriers, but
-this project will TODO.
+Advanced Manufacturing is a strategic sector
+for maintaining Europe's position as a competitive global player.
+Autonomous factories performing at optimum levels while maintaining the highest standards of quality and safety
+is the goal of any company that expect to stay competitive.
+However, to approach this ideal state,
+we still need to understand the response of the machines to external forces and
+to be able to steer them to stable conditions.
 
-The European Commission views Advance Manufacturing as a strategic sector
-for maintaining the region's position as a competitive global player \cite{industrialforum}.
-In the same way Modal Analysis is an essential tool today in the manufacturing industry,
-the new theoretical frameworks and methodologies developed during this project will
+Modal Analysis has been an essential part for the ma\-nu\-facturing industry for years in
+the understanding of response functions and modelling of processes, but
+it only applies to linear structures, which not only limit its scope of applicability but
+also limit our ability to design and deploy nonlinear structures for which
+we do not understand their response.
+
+The new theoretical frameworks and methodologies developed during this project will
 contribute to the creation of new tools for monitoring, control, and diagnosis of machining processes where
 nonlinear effects and varying parameters play an important role.
+Furthermore, the use of Bayesian statistics allows quantifying model uncertainties,
+which renders more reliable predictions than usual frequentist methods.
 
-Research outputs will be disseminated through usual scientific channels:
+Research outputs will be disseminated through the usual scientific channels:
 articles in re\-pu\-table peer-reviewed journals, and
 posters and talks in scientific events.
-Additionally, the research outputs will be promoted through the webpages of the Department of Applied Mechanics and the Machine Tool Vibration Research Group.
-I will also post blog entries to my webpage featuring my research or interesting facts in a more engaging and less formal language for a broader scientific audience.
+Additionally, the research outputs will be promoted through the webpages of the Department of Applied Mechanics and the MTV-RG.
+I will also post in my webpage blog entries featuring my research or interesting facts in a more engaging and less formal language for a broader scientific audience.
 
 To grow and strengthen my collaborative network,
 I will organize at least one workshop on Nonlinear System Identification and Bayesian statistics to bring together researchers
@@ -321,9 +336,9 @@ from both fields.
 \section{Implementation}
 
 As a MSCA fellow,
-I will be part of the MTA-BME Lendület Machine Tool Vibration Research Group, led by Zoltán Dombóvári, 
+I will be part of the MTA-BME Lendület MTV-RG, led by Zoltán Dombóvári, 
 which functions within the Department of Applied Mecha\-nics.
-The main objective of the Machine Tool Vibration Group is to
+The main objective of the MTV-RG is to
 develop a framework for effective intervention of machining processes based on sensory data.
 Among the strategic objectives,
 robot dynamics and machining of slender workpieces feature prominently due to
@@ -331,13 +346,13 @@ the emergence of nonlinear behavior and time varying parameters,
 which perfectly aligns with the objectives of this proposal,
 although the approaches are different.
 
-I will bring to the Group a Bayesian perspective which
+I will bring to the MTV-RG a Bayesian perspective which
 they have not explored yet.
-This new perspective will extend the Group's research portfolio
+This new perspective will extend the MTV-RG's research portfolio
 by endowing them with new tools for the rigorous statistical analysis of experimental data, and
 additional theoretical knowledge for including uncertainty into their models.
 
-The Group excels at the construction, simulation, and experimental validation of physical models of machining processes.
+The MTV-RG excels at the construction, simulation, and experimental validation of physical models of machining processes.
 However, at times, their work depends on the application of heuristic algorithms or black-boxes
 whose inner workings do not lie in their domain of expertise.
 On the other hand, as a mathematician,
@@ -383,11 +398,11 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
 
     MS.~1: Kick-off meeting;
     MS.~2: First version of the Data Management Plan (DMP); and
-    MS.~3: Secondment institution formally agrees.
+    MS.~3: Secondment finished.
 
-    D.~1: Meeting report; and
-    D.~2: Upload DMP to repository.
-    D.~3: Invitation letter from secondment institution.
+    D.~1: Meeting report;
+    D.~2: Upload DMP to repository; and
+    D.~3: Certificate of stay from secondment institution.
 
     \item \textit{Solving dynamical systems:}
     Activities to reach O.~\ref{likelihood}.
@@ -411,17 +426,16 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
     collect data, and analyze them.
 
     MS.~1: Define data source; and
-    MS.~2: Apply a methodology for Nonlinear System Identification using Bayesian inference to a specifi dataset.
+    MS.~2: Apply a methodology for Nonlinear System Identification using Bayesian inference to a specific dataset.
 
-    D.~1: In case of generating a new experimental dataset,
-    upload complete dataset to repository; and
+    D.~1: If the dataset is new, upload it to repository; and
     D.~2: Scientific article.
 
     \item \textit{Dissemination and Transfer Knowledge:}
     Activities to create synergies with researchers at the host institution, and to reach academic and industrial partners.
 
-    MS.~1: First release version of the project's Python package; and
-    MS.~2: Define the title of the project's workshop, dates, and confirmed speakers.
+    MS.~1: First version of Python package; and
+    MS.~2: Successful conclusion of workshop.
 
     D.~1: Publish package's repository and website; and
     D.~2: Workshop proceedings.
@@ -489,18 +503,18 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
         M/H &
         Resort to simulated data.
         The project can still be completed, but
-        with weaker conclusions. \\ \midrule
+        with weaker conclusions. \\
 
-        5 &
-        Problems organizing the workshop
-        (\textit{e.g.} delays, unexpected cancellations, low attendance) &
-        M/L &
-        I do not have much experience as organizer, but
-        Z. Dombóvári do.
-        The workshop could be online.
-        If no workshop takes place,
-        it would undermine the dissemination plan, but
-        I still will share the outputs through articles, congreses, etc. \\
+        % 5 &
+        % Problems organizing the workshop
+        % (\textit{e.g.} delays, unexpected cancellations, low attendance) &
+        % M/L &
+        % I do not have much experience as organizer, but
+        % Z. Dombóvári do.
+        % The workshop could be online.
+        % If no workshop takes place,
+        % it would undermine the dissemination plan, but
+        % I still will share the outputs through articles, congreses, etc. \\
 
         \bottomrule
     \end{tabular}
@@ -508,6 +522,9 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
 
 \noindent The risks and mitigation actions are described in Table~\ref{tab:risks}.
 
+
+\begingroup
+\setlength\bibitemsep{0pt}
 \printbibliography
 
 \end{document}
