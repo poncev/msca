@@ -101,6 +101,9 @@
 
 \section{Excellence}
 
+We are living the fourth industrial revolution,
+and manufacturers are pushing industrial research towards smart factories.
+
 Reliable, autonomous, and smooth running machines is the most desirable state for any ma\-nu\-facturing plant.
 To achieve, or approach, this utopian scenario it is essential to understand
 the response of the machines to external forces so that
@@ -340,52 +343,21 @@ I will be part of the MTA-BME Lendület MTV-RG, led by Zoltán Dombóvári,
 which functions within the Department of Applied Mecha\-nics.
 The main objective of the MTV-RG is to
 develop a framework for effective intervention of machining processes based on sensory data.
-Among the strategic objectives,
-robot dynamics and machining of slender workpieces feature prominently due to
-the emergence of nonlinear behavior and time varying parameters,
+Robot dynamics and machining of slender workpieces feature prominently
+among their strategic objectives.
+These phenomena are characterized by the emergence of nonlinear behavior and time varying parameters,
 which perfectly aligns with the objectives of this proposal,
 although the approaches are different.
-
-I will bring to the MTV-RG a Bayesian perspective which
-they have not explored yet.
-This new perspective will extend the MTV-RG's research portfolio
-by endowing them with new tools for the rigorous statistical analysis of experimental data, and
-additional theoretical knowledge for including uncertainty into their models.
-
-The MTV-RG excels at the construction, simulation, and experimental validation of physical models of machining processes.
-However, at times, their work depends on the application of heuristic algorithms or black-boxes
-whose inner workings do not lie in their domain of expertise.
-On the other hand, as a mathematician,
-I rely on their expert knowledge and experience on machining processes.
-This creates a perfect synergy because
-I can complement them by opening and modifying black-boxes (like NN architectures) tailored
-for specific use-cases, while
-steering my work toward physically relevant mathematical concepts.
-
-\textcolor{red}{Does BME-MM have access to any computing cluster?}
-
-\textcolor{red}{Does BME-MM have licenses for relevant programs, like: Ansys, Siemens Testlab, Matlab, Abaqus, ...}
-
-\textcolor{red}{About equipment and facilities, what do you suggest I should remark as strengths of MM-BME.}
-
-\textcolor{red}{Describe the resources required for your project.
-Detail any specific equipment, datasets, capabilities, or facilities needed}
-
 A secondment is planned at the Royal Institute of Technology (KTH) in Stockholm, Sweden,
 under the supervision of Andreas Archenti, 
 a well-known researcher in precision engineering.
-Other collaborators in the Basque Country, Spain, are:
-\textit{(i)} The Basque Center for Applied Mathematics (BCAM);
-\textit{(ii)} The Aeronautics Advanced Manufacturing Center (CFAA); and
-\textit{(iii)} IDEKO.
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \includegraphics[width=0.95\textwidth]{images/gantt.eps}
     \caption{Gantt chart. Abbreviations: Experiments (Exp); Python Package (Pkg); Workshop (WS); and Secondment (S).
     Red bar denotes third-party responsibility. \textcolor{red}{correct S}}\label{fig:gantt}
 \end{figure}
-
 
 The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, summarized in Figure~\ref{fig:gantt}, are:
 
@@ -409,27 +381,26 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
 
     MS.~1: Efficiently solve dynamical systems of interest using existing or novel methods.
 
-    D.~1: Scientific article.
+    D.~1: Scientific article (preprint).
 
     \item \textit{Model updating:}
     Activities to reach O.~\ref{prior}.
 
     MS.~1: Implement and apply an algorithm to approach target probability densities.
 
-    D.~1: Scientific article.
+    D.~1: Scientific article (preprint).
 
     \item \textit{Experimental validation:}
     Activities to reach O.~\ref{experiment}.
-    Find a source of data, either existing datasets or
-    data from a new experiment.
+    Find at least one source of data, either existing datasets or new experimental data.
     In the latter case, design and perform the experiment,
     collect data, and analyze them.
 
-    MS.~1: Define data source; and
+    MS.~1: Define at least one data source; and
     MS.~2: Apply a methodology for Nonlinear System Identification using Bayesian inference to a specific dataset.
 
     D.~1: If the dataset is new, upload it to repository; and
-    D.~2: Scientific article.
+    D.~2: Scientific article (preprint).
 
     \item \textit{Dissemination and Transfer Knowledge:}
     Activities to create synergies with researchers at the host institution, and to reach academic and industrial partners.
@@ -442,13 +413,15 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
 
 \end{WPs}
 
+\noindent The risks and mitigation actions are described in Table~\ref{tab:risks}.
+
 \begin{table}[t!]
     \centering
     % \renewcommand{\arraystretch}{1.}
     \caption{
     Risks and mitigation actions;
     only technical risks, ignoring familiar or inter-personal risks.
-    The Likelihood/Impact (\textbf{L/I}) is described as Low (L), Medium (M), or High (H).}\label{tab:risks}
+    The Likelihood/Impact (\textbf{L/I}) is classified as Low (L), Medium (M), or High (H).}\label{tab:risks}
     \begin{tabular}{@{}
         >{\centering\arraybackslash}p{.05\textwidth-2\tabcolsep}
         p{.36\textwidth-2\tabcolsep}
@@ -468,7 +441,6 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
         A. Archenti (KTH)
         has expressed his willingness to accept me as a mentee.
         Another alternative is IDEKO, Spain.
-        Also, Z. Dombóvári has an extense list of collaborators.
          \\ \midrule
 
         2 &
@@ -489,12 +461,13 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
         Again, use a hierarchy of models. \\ \midrule
 
         4 &
-        No sufficient funding for experiments,
-        experiments cannot be completed, or
+        No sufficient funding for expe\-riments,
+        they cannot be completed, or
         bad results (\textit{e.g.} malfunctioning sensor). &
-        H/H &
-        Fall back to historical data from a collaborator like IDEKO or CFAA, or
-        publicly available datasets.
+        M/H &
+        Basic tests are easily within the capabilities of the MTV-RG.
+        Also, use historical data from a colla\-bo\-rator like IDEKO, or
+        public datasets.
         \\ \midrule
 
         4 &
@@ -520,7 +493,40 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
     \end{tabular}
 \end{table}
 
-\noindent The risks and mitigation actions are described in Table~\ref{tab:risks}.
+I will bring to the MTV-RG a Bayesian perspective which
+they have not explored yet.
+This new perspective will extend the MTV-RG's research portfolio
+by endowing them with new tools for the rigorous statistical analysis of experimental data, and
+additional theoretical knowledge for including uncertainty into their models.
+
+The MTV-RG excels at the construction, simulation, and experimental validation of physical models of machining processes.
+However, at times, their work depends on heuristic algorithms or black-boxes
+whose inner workings do not lie in their domain of expertise.
+On the other hand, as a mathematician,
+I rely on their expert knowledge and experience on machining processes.
+This creates a perfect synergy because
+I can complement them by opening and modifying black-boxes (like NN architectures) tailored
+for specific use-cases, while
+steering my work toward physically relevant mathematical concepts.
+
+For computing, personal computers are expected to meet the demand for this project, but
+even if they do not,
+cloud computing services like Azure or AWS should cover the demand at a reasonable cost (below €1.000 for the whole project).
+The MTV-RG has access to software like Matlab, Wolfram Mathematica, and Ansys, so
+no additional cost is expected for software licenses, but it is for training (below €1.000).
+
+For experimental activities,
+the MTV-RG has access to the Department's laboratory, which
+is equipped with the necessary equipment and machines for multiple tests.
+The laboratory provides several sensors and exciters, data acquisition systems, and a 3-axes CNC milling center.
+Also, the KTH (secondment institution) has fully equipped laboratories.
+
+Collaborators in the Basque Country, Spain, are:
+the Basque Center for Applied Mathematics (BCAM);
+the Aeronautics Advanced Manufacturing Center (CFAA); and
+IDEKO.
+In Hungary, Z. Dombóvári also collaborates with researchers from Bosch, which
+offers access to additional equipment and data.
 
 
 \begingroup
