@@ -102,45 +102,43 @@
 \section{Excellence}
 
 We are living the fourth industrial revolution,
-and manufacturers are pushing industrial research towards smart factories.
-
-Reliable, autonomous, and smooth running machines is the most desirable state for any ma\-nu\-facturing plant.
-To achieve, or approach, this utopian scenario it is essential to understand
+and to stay competitive manufacturers are pushing industrial research towards smart factories which
+can automatically and effectively respond to any event using data from multiple sensors.
+However, to achieve, or approach, this utopian scenario one essential ingredient is to understand
 the response of the machines to external forces so that
 unstable operating conditions can be avoided or controlled.
 To understand the response of a structure to external forces --- an activity known as System Identification ---
-analysis of experimental data and modelling are essential components.
+analysis of experimental data and modelling is indispensable.
 
 The general objective (GO) of this proposal is
 \emph{to provide sound methods and algorithms for the analysis of experimental data
 of structures with significant nonlinear effects.}
-Here, we focus on structures encountered in Advance Manufacturing by metal removal operations,
+This proposal focuses on structures encountered in Advanced Manufacturing by metal removal operations,
 like manufacturing of aerospace thin-walled components which
 must comply with very high standards of quality and safety.
 Nonlinear System Identification is an endless source of challenges, and
 a growing field of research \cite{noel17}.
 
 Unlike many successful data-driven models for image or language processing,
-the amount of data available for training of models in Advance Manufacturing is much more limited.
-To compensate for such scarcity of data (or relevant information),
-physically motivated models are still in active use in the field, so
-to achieve the GO I will follow this methodology.
+the amount of high-quality data available for training of models in Advanced Manufacturing is much more limited.
+To compensate for such scarcity,
+physically motivated models are still used in the field.
 
 Physical models of structures usually take the form
 \begin{equation} \label{eq:mechanical_model}
     M\ddot{x} + C\dot{x} + Kx + G(t, x, \dot{x}) = f(t),
 \end{equation}
 where \(x\) are general coordinates of displacement from equilibrium,
-\(f\) is an external force or excitation,
+\(f\) is an external force,
 \(M\), \(C\), and \(K\) are matrices representing the mass, damping, and stiffness, and
 \(G\) represents additional linear or nonlinear effects.
 Linear models have been successfully applied in the modelling of many structures of practical interest, like machine tools.
 However, in recent years, nonlinear effects are getting increasing attention
-for, among other things, their relevance in lightweight structures \cite{martinelli24}, or
-also for describing robot dynamics with varying parameters \cite{bjorn25}.
-I remark that machining robots are a field of current interest in Advance Manufacturing \cite{verl19}.
+for, among other things, their relevance for lightweight structures \cite{martinelli24}, or
+for describing robot dynamics with varying parameters \cite{bjorn25}.
+I remark that machining robots are a field of current interest in Advanced Manufacturing \cite{verl19}.
 
-As another methodological principle,
+As a methodological principle,
 I plan to approach the subject from a Bayesian point of view, which
 has not been thoroughly explored in this context.
 Bayesian statistics offers a rigorous answer to the question:
@@ -149,7 +147,7 @@ This is the scientific question we want to answer from experiments, which
 is in clear contrast with the popular Frequentist approach,
 where a single model is assumed to be true, and
 we have to find it by fitting parameters.
-Bayesian statistics is particularly important when decisions must be made with little relevant information, and
+Bayesian statistics is particularly important when decisions must be made with limited data, and
 we want to include modelling uncertainties into the predictions.
 
 Bayes's theorem states that
@@ -170,14 +168,14 @@ two strategic objectives are
 
 The computation of the likelihood in O.~\ref{likelihood}
 is roughly equivalent to efficiently solving \(x\) in \eqref{eq:mechanical_model} given the model parameters.
-The computation of the posterior in \eqref{eq:bayesT} involves repeated computations of \(x\) with different parameters, which
+The computation of the posterior in \eqref{eq:bayesT} involves repeated solutions of \(x\) with different parameters, which
 are then plugged into the likelihood.
 At each iteration, \(x\) may be found using traditional methods like
 Runge--Kutta schemes, however,
 this could lead to an excessive computational overhead.
 
-Recently, novel methods inspired in data-driven algorithms have given way to a new ge\-ne\-ration of solvers which
-could speed up the process dramatically.
+Recently, novel methods inspired by data-driven algorithms have given way to solvers which
+ speed up the process dramatically.
 Two popular methods are Physics-Informed Neural Networks (PINNs) \cite{pinn22}
 and Sparse Identification of Non-linear Dynamics (SINDy) \cite{sindy19}.
 In both cases
@@ -186,16 +184,13 @@ then to use the trained model to retrieve solutions quickly.
 
 PINNs solve differential equations by transforming them
 into a loss minimization problem.
-The solution \(x_\theta\) is approximated by a Neural Network with parameters \(\theta\), and
+The solution \(x_\theta\) is approximated by a Neural Network (NN) with parameters \(\theta\), and
 then \(\theta\) are adjusted by minimizing a loss function forcing
 \(x_\theta\) to satisfy the differential equation.
 
 SINDy replaces the dynamics by a sparse sum of nonlinear terms representing the main terms driving the system.
-In an improved version of the method,
-the solution \(x\) is mapped by an autoencoder to a space of lower dimension, which
-gives a more fundamental representation of the solution.
-This has a resemblance to the use of complex resonances and mode shapes for solving linear equations, which
-effectively reduces \(x\) to a lower dimensional representation.
+To improve the performance, the solution \(x\) is mapped by an autoencoder to a space of lower dimension, which
+better represents the solution.
 The initial cost of generating a dataset by solving the dynamics using standard numerical methods is later
 recovered when new solutions must be quickly computed.
 
@@ -208,23 +203,19 @@ used together with SINDy to efficiently track bifurcations in complex dynamical 
 
 The Bayesian theoretical framework elegantly updates information using the posterior as the new prior when more data arrive.
 Unfortunately,
-technical issues make it difficult to realize this philosophy in practice,
-forcing to re-train the model from scratch when new data arrive.
-This renders Bayesian inference impractical for structures with varying parameters, and
-to overcome this challenge is the core of O.~\ref{prior}.
+the most reliable methods to explore the posterior are based on Markov Chain Monte Carlo (MCMC) algorithms \cite{gelman14}, and
+these algorithms require an analytic prior and then output samples from the posterior;
+but, how can we reuse samples from the posterior as a new analytical prior?
+Every time new data arrive, we are forced to re-train the model,
+which is impractical.
+This is the core of O.~\ref{prior}.
 
-The most reliable methods to explore the posterior are based on Markov Chain Monte Carlo (MCMC) algorithms \cite{gelman14}, which
-approximate the posterior by returning samples from it.
-State-of-the-art MCMC algorithms require the prior \(p(M)\) to be an analytic function, so
-it is impossible to reuse a previous posterior because it is a collection of samples, not an analytic function.
-
-Several alternatives have been put forward to solve this problem,
-like sequential learning, or importance sampling.
-Recently, Neural Networks have been proposed as a fast
+Some methods to solve this problem are sequential learning or importance sampling.
+Recently, NNs have been proposed as a fast
 alternative to computing probability densities.
 For instance, in a problem of reconstruction of images from partial or corrupted data \cite{cai24},
-samples were transformed into an analytic prior \(p(M)\) using a method called Normalizing Flow, which
-uses Neural Networks to make a Gaussian distribution flow into another distribution.
+samples were transformed into an analytic prior using a method called Normalizing Flow, which
+uses NNs to make a Gaussian distribution flow into another target distribution.
 
 The last strategic objective (\obj{experiment}) is
 \emph{to validate a methodology experimentally.}
@@ -245,9 +236,6 @@ Repository of the Academy's Library (REAL), as encouraged by MTA, and also to ar
 Depending on the publisher's policies,
 the accepted or published versions will be also deposited in the REAL;
 no funds will be dedicated to the payment of open access fees.
-
-MENTION INTERPRETABILITY.
-TO SAY THAT THERE ARE MORE METHODS, AND I AM NOT LIMITED TO THOSE I MENTIONED.
 
 For the scientific code,
 I will give priority to open-source software, and
@@ -327,7 +315,8 @@ which renders more reliable predictions than usual frequentist methods.
 
 Research outputs will be disseminated through the usual scientific channels:
 articles in re\-pu\-table peer-reviewed journals, and
-posters and talks in scientific events.
+posters and talks in scientific events; in particular,
+ISMA or USD conferences in Leuven, Belgium, will be considered.
 Additionally, the research outputs will be promoted through the webpages of the Department of Applied Mechanics and the MTV-RG.
 I will also post in my webpage blog entries featuring my research or interesting facts in a more engaging and less formal language for a broader scientific audience.
 
@@ -466,8 +455,7 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
         bad results (\textit{e.g.} malfunctioning sensor). &
         M/H &
         Basic tests are easily within the capabilities of the MTV-RG.
-        Also, use historical data from a colla\-bo\-rator like IDEKO, or
-        public datasets.
+        Also, I could ask a collaborator like IDEKO for historical data, or search public datasets.
         \\ \midrule
 
         4 &
