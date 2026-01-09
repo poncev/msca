@@ -202,32 +202,29 @@ For instance, in \cite{conti23} Proper Orthogonal Decomposition (POD) was
 used together with SINDy to efficiently track bifurcations in complex dynamical systems.
 
 The Bayesian theoretical framework elegantly updates information using the posterior as the new prior when more data arrive.
-Unfortunately,
-the most reliable methods to explore the posterior are based on Markov Chain Monte Carlo (MCMC) algorithms \cite{gelman14}, and
-these algorithms require an analytic prior and then output samples from the posterior;
-but, how can we reuse samples from the posterior as a new analytical prior?
-Every time new data arrive, we are forced to re-train the model,
+The most reliable methods to explore the posterior are based on Markov Chain Monte Carlo (MCMC) algorithms \cite{gelman14}, which
+require an analytic prior and then output samples from the posterior.
+However, how can we reuse samples from the posterior as a new analytical prior?
+Every time new data arrive, we are forced to re-train the model from scratch,
 which is impractical.
 This is the core of O.~\ref{prior}.
 
-Some methods to solve this problem are sequential learning or importance sampling.
-Recently, NNs have been proposed as a fast
+To deal with this problem sequential learning or importance sampling have been proposed.
+NNs have also been proposed as a fast
 alternative to computing probability densities.
-For instance, in a problem of reconstruction of images from partial or corrupted data \cite{cai24},
+For instance, in a problem of image reconstruction from partial or corrupted data \cite{cai24},
 samples were transformed into an analytic prior using a method called Normalizing Flow, which
 uses NNs to make a Gaussian distribution flow into another target distribution.
 
 The last strategic objective (\obj{experiment}) is
 \emph{to validate a methodology experimentally.}
-Objectives \ref{likelihood} and \ref{prior} give us a method to select promising models according to the evidence,
-but it still remains to choose a structure and a experimental methodology.
-There are plenty of possible structures, and a few relevant ones are listed in \cite{schoukens17}.
-At first, a structure encounter in Advance Manufacturing will be used, like a thin-wall component or a robotic arm.
-
-After setting the structure,
-I will be assisted by my collaborators in the host and secondment institution for the experimental work.
-In particular, tests will be designed to measure the extent of nonlinear effects, like
-measuring the response at different amplitudes of excitation, and
+Objectives \ref{likelihood} and \ref{prior} give us methods for inference and prediction,
+but it still remains to design experimental tests.
+There are plenty of possible mechanical structures, and a few benchmark problems are listed in \cite{schoukens17}.
+For this objective, I will be assisted by my collaborators at the host and secondment institutions.
+In particular, tests will be designed to measure the extent of nonlinear effects.
+For example,
+the response at different excitation amplitudes can be measured, or
 frequency sweeps in both directions to detect backbone curves.
 
 In agreement with Open Science policies,
@@ -236,7 +233,6 @@ Repository of the Academy's Library (REAL), as encouraged by MTA, and also to ar
 Depending on the publisher's policies,
 the accepted or published versions will be also deposited in the REAL;
 no funds will be dedicated to the payment of open access fees.
-
 For the scientific code,
 I will give priority to open-source software, and
 I will upload the code to public repositories, like GitHub.
@@ -252,15 +248,15 @@ it may define my whole future academic career.
 In the medium term,
 securing this prestigious grant will increase my visibility and
 probabilities of success in securing further funding for my research or scientific events.
-Since this project may yield algorithms with industrial relevance,
-in the future I could serve as a consultant in areas like advanced manufacturing.
+Since this project will yield algorithms with industrial relevance,
+in the future I could serve as a consultant in Advanced Manufacturing.
 
 In the short term,
 I will benefit from the interaction with the members of
 the Machine Tool Vibration Research Group (MTV-RG) and their large list of collaborators.
 The MTV-RG is known for their sensitivity when it comes to appreciate the mathematical depth behind manufacturing processes
 (which is not always the case in engineering environments),
-so the MTV-RG is the right place to learn and apply several mathematical techniques in high demand inside and outside academia.
+so the MTV-RG is the right place to learn and apply several skills in high demand inside and outside academia.
 
 For example, I have only learned about NNs in theory, but
 I lack practical experience, so
@@ -281,44 +277,40 @@ other researchers or industrial R\&D teams can exploit them,
 facilitating technology transfer.
 Additionally, software maintenance demands several skills to enable an effective interaction with the users, like
 a well-documented code, a webpage, and a pipeline from development to deployment.
-For all this, I will take a course on good practices for code development and deployment.
+For all this, I will take a course on good practices for code development.
 
 Frequentist statistics is still the main method of analysis in many areas, even
 in conditions where it cannot be fully justified.
-This project will promote the use of Bayesian statistics for the analysis of industrial processes
+This project will promote and enable the use of Bayesian statistics for the analysis of industrial processes
 through the introduction of robust algorithms together with their implementation in use-cases.
 As mentioned in the first section,
 one of the bottlenecks in the application of Bayesian methods is
 the difficulty of converting a posterior into a prior for further sampling.
 However, this project seeks to solve this problem,
-at least for specific cases that may hint a more general method for future research.
-
-Advanced Manufacturing is a strategic sector
-for maintaining Europe's position as a competitive global player.
-Autonomous factories performing at optimum levels while maintaining the highest standards of quality and safety
-is the goal of any company that expect to stay competitive.
-However, to approach this ideal state,
-we still need to understand the response of the machines to external forces and
-to be able to steer them to stable conditions.
-
-Modal Analysis has been an essential part for the ma\-nu\-facturing industry for years in
-the understanding of response functions and modelling of processes, but
-it only applies to linear structures, which not only limit its scope of applicability but
-also limit our ability to design and deploy nonlinear structures for which
-we do not understand their response.
+at least for specific cases that may hint at more general method for future research.
 
 The new theoretical frameworks and methodologies developed during this project will
 contribute to the creation of new tools for monitoring, control, and diagnosis of machining processes where
 nonlinear effects and varying parameters play an important role.
 Furthermore, the use of Bayesian statistics allows quantifying model uncertainties,
-which renders more reliable predictions than usual frequentist methods.
+which renders more reliable predictions than usual Frequentist methods.
+
+Advanced Manufacturing is a strategic sector
+for maintaining Europe's position as a competitive global player.
+Autonomous factories performing at optimum levels while running at the highest standards of quality and safety
+is the goal of any company that expects to stay competitive.
+Modal Analysis has guided the ma\-nu\-facturing industry for years in approaching this goal, but
+it only applies to linear structures, which not only limit its scope of applicability but
+also limit our ability to design and deploy nonlinear structures for which
+we do not understand their response.
+I envision future standard algorithms based on the results of this project.
 
 Research outputs will be disseminated through the usual scientific channels:
 articles in re\-pu\-table peer-reviewed journals, and
 posters and talks in scientific events; in particular,
 ISMA or USD conferences in Leuven, Belgium, will be considered.
 Additionally, the research outputs will be promoted through the webpages of the Department of Applied Mechanics and the MTV-RG.
-I will also post in my webpage blog entries featuring my research or interesting facts in a more engaging and less formal language for a broader scientific audience.
+I will also post to my webpage blog entries featuring my research or interesting facts in a more engaging and less formal language for a broader scientific audience.
 
 To grow and strengthen my collaborative network,
 I will organize at least one workshop on Nonlinear System Identification and Bayesian statistics to bring together researchers
@@ -327,25 +319,23 @@ from both fields.
 
 \section{Implementation}
 
-As a MSCA fellow,
 I will be part of the MTA-BME Lendület MTV-RG, led by Zoltán Dombóvári, 
 which functions within the Department of Applied Mecha\-nics.
 The main objective of the MTV-RG is to
-develop a framework for effective intervention of machining processes based on sensory data.
-Robot dynamics and machining of slender workpieces feature prominently
+develop a framework for effective intervention of machining processes based on sensory data, and
+robot dynamics and machining of slender workpieces feature prominently
 among their strategic objectives.
 These phenomena are characterized by the emergence of nonlinear behavior and time varying parameters,
 which perfectly aligns with the objectives of this proposal,
 although the approaches are different.
 A secondment is planned at the Royal Institute of Technology (KTH) in Stockholm, Sweden,
-under the supervision of Andreas Archenti, 
-a well-known researcher in precision engineering.
+under the supervision of Andreas Archenti.
 
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.95\textwidth]{images/gantt.eps}
     \caption{Gantt chart. Abbreviations: Experiments (Exp); Python Package (Pkg); Workshop (WS); and Secondment (S).
-    Red bar denotes third-party responsibility. \textcolor{red}{correct S}}\label{fig:gantt}
+    The red bar denotes third-party responsibility.}\label{fig:gantt}
 \end{figure}
 
 The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, summarized in Figure~\ref{fig:gantt}, are:
@@ -363,12 +353,12 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
 
     D.~1: Meeting report;
     D.~2: Upload DMP to repository; and
-    D.~3: Certificate of stay from secondment institution.
+    D.~3: Certificate of stay.
 
     \item \textit{Solving dynamical systems:}
     Activities to reach O.~\ref{likelihood}.
 
-    MS.~1: Efficiently solve dynamical systems of interest using existing or novel methods.
+    MS.~1: Efficiently solve dynamical systems of interest using cutting-edge algorithms.
 
     D.~1: Scientific article (preprint).
 
@@ -386,7 +376,7 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
     collect data, and analyze them.
 
     MS.~1: Define at least one data source; and
-    MS.~2: Apply a methodology for Nonlinear System Identification using Bayesian inference to a specific dataset.
+    MS.~2: Apply Bayesian inference to Nonlinear System Identification with a specific dataset.
 
     D.~1: If the dataset is new, upload it to repository; and
     D.~2: Scientific article (preprint).
@@ -428,7 +418,7 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
         No secondment institution is found. &
         L/H &
         A. Archenti (KTH)
-        has expressed his willingness to accept me as a mentee.
+        has expressed his willingness to take me as a mentee.
         Another alternative is IDEKO, Spain.
          \\ \midrule
 
@@ -436,26 +426,25 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
         The new algorithms are not sufficiently fast for Bayesian exploration. &
         M/H &
         WP3 depends on this.
-        Define a hierarchy of models, from simple to complex, so that
+        Define a hierarchy of mo\-dels, from simple to complex, so that
         at each stage there is only one major issue to overcome
         like a nonlinearity or high-dimensionality.
         Leverage computational speed and complexity. \\ \midrule
 
         3 &
         The algorithm is prohibitively slow, or
-        the posteior do not converge to the target distribution. &
+        the posterior do not converge to the target. &
         M/M &
         WP4 depends on this, but
         MCMC can still be used for simple models in WP4.
         Again, use a hierarchy of models. \\ \midrule
 
         4 &
-        No sufficient funding for expe\-riments,
-        they cannot be completed, or
+        No sufficient funding for expe\-riments, or
         bad results (\textit{e.g.} malfunctioning sensor). &
         M/H &
         Basic tests are easily within the capabilities of the MTV-RG.
-        Also, I could ask a collaborator like IDEKO for historical data, or search public datasets.
+        Also, I could ask a collaborator for historical data, or search for public datasets.
         \\ \midrule
 
         4 &
@@ -465,17 +454,6 @@ The Work Packages (WP), Milestones (MS), and Deliverables (D) of the project, su
         Resort to simulated data.
         The project can still be completed, but
         with weaker conclusions. \\
-
-        % 5 &
-        % Problems organizing the workshop
-        % (\textit{e.g.} delays, unexpected cancellations, low attendance) &
-        % M/L &
-        % I do not have much experience as organizer, but
-        % Z. Dombóvári do.
-        % The workshop could be online.
-        % If no workshop takes place,
-        % it would undermine the dissemination plan, but
-        % I still will share the outputs through articles, congreses, etc. \\
 
         \bottomrule
     \end{tabular}
@@ -497,7 +475,7 @@ I can complement them by opening and modifying black-boxes (like NN architecture
 for specific use-cases, while
 steering my work toward physically relevant mathematical concepts.
 
-For computing, personal computers are expected to meet the demand for this project, but
+For computing, personal computers are expected to meet the demands for this project, but
 even if they do not,
 cloud computing services like Azure or AWS should cover the demand at a reasonable cost (below €1.000 for the whole project).
 The MTV-RG has access to software like Matlab, Wolfram Mathematica, and Ansys, so
@@ -513,8 +491,8 @@ Collaborators in the Basque Country, Spain, are:
 the Basque Center for Applied Mathematics (BCAM);
 the Aeronautics Advanced Manufacturing Center (CFAA); and
 IDEKO.
-In Hungary, Z. Dombóvári also collaborates with researchers from Bosch, which
-offers access to additional equipment and data.
+In Hungary, Z. Dombóvári also collaborates with researchers from Bosch.
+Hence, our collaborators offer access to additional equipment and data.
 
 
 \begingroup
